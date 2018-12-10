@@ -174,20 +174,18 @@ OUTPUT:
 ```
 5. Obtain the number of permits (use the function count) for each one of the PERMIT_TYPE (i.e. group by this attribute)
 ```
-
 db.chicago.aggregate([{$group: {_id: "$PERMIT_TYPE",num_PERMIT : {$sum:1}}}, {$sort:{"num_PERMIT": 1}}])
-
-db.chicago.aggregate([{$group: {_id: "$PERMIT_TYPE", counts: {$sum: 1}}},{$sort:{"counts": 1}}])
-
+```
 OUTPUT:
 { "_id" : "PERMIT - FOR EXTENSION OF PMT", "num_PERMIT" : 58 }
+{ "_id" : "PERMIT - REINSTATE REVOKED PMT", "num_PERMIT" : 2871 }
 { "_id" : "PERMIT - PORCH CONSTRUCTION", "num_PERMIT" : 3090 }
+{ "_id" : "PERMIT - SCAFFOLDING", "num_PERMIT" : 7141 }
+{ "_id" : "PERMIT - ELEVATOR EQUIPMENT", "num_PERMIT" : 13479 }
+{ "_id" : "PERMIT - WRECKING/DEMOLITION", "num_PERMIT" : 16020 }
+{ "_id" : "PERMIT - NEW CONSTRUCTION", "num_PERMIT" : 21143 }
+{ "_id" : "PERMIT - SIGNS", "num_PERMIT" : 34174 }
 { "_id" : "PERMIT - RENOVATION/ALTERATION", "num_PERMIT" : 113962 }
 { "_id" : "PERMIT - EASY PERMIT PROCESS", "num_PERMIT" : 148317 }
-{ "_id" : "PERMIT - ELEVATOR EQUIPMENT", "num_PERMIT" : 13479 }
 { "_id" : "PERMIT - ELECTRIC WIRING", "num_PERMIT" : 196910 }
-{ "_id" : "PERMIT - NEW CONSTRUCTION", "num_PERMIT" : 21143 }
-{ "_id" : "PERMIT - WRECKING/DEMOLITION", "num_PERMIT" : 16020 }
-{ "_id" : "PERMIT - SIGNS", "num_PERMIT" : 34174 }
-{ "_id" : "PERMIT - SCAFFOLDING", "num_PERMIT" : 7141 }
-{ "_id" : "PERMIT - REINSTATE REVOKED PMT", "num_PERMIT" : 2871 }
+```
